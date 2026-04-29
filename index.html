@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premier Barber — Site de Apresentação</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ─── BANNER DE CONFIGURAÇÃO ──────────────────────────────────────────── -->
+  <div id="config-banner" class="config-banner" style="display:none">
+    ⚙️ Integração não configurada — clique aqui para configurar API Key, Secret e WhatsApp
+  </div>
+
+  <!-- ─── NAV ────────────────────────────────────────────────────────────────── -->
+  <nav id="main-nav">
+    <a href="#" class="brand-logo-text">
+      <span class="bl-main">PREMIER</span>
+      <span class="bl-bar"></span>
+      <span class="bl-sub">Barber</span>
+    </a>
+
+    <div class="nav-desktop-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#loja">Loja</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#localiza">Localização</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <button id="settings-btn" class="nav-settings-btn" aria-label="Configurações" title="Configurar integração">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </button>
+      <button class="btn-gold-solid nav-book-btn-desktop">AGENDAR</button>
+    </div>
+
+    <button id="hamburger-btn" class="hamburger-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#loja">Loja</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#localiza">Localização</a>
+    <button id="mobile-settings-btn" style="background:none;border:1px solid #2a2a2a;color:#888;padding:12px 16px;font-size:13px;cursor:pointer;border-radius:2px;font-family:Outfit;text-align:left;margin:12px 0;display:flex;align-items:center;gap:8px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Configurações
+    </button>
+    <button class="btn-agendar" style="margin-top:8px;margin-bottom:16px;width:100%;background:var(--gold);color:var(--black);border:none;padding:12px;font-size:14px;font-weight:700;cursor:pointer;border-radius:2px;font-family:Outfit">AGENDAR</button>
+  </div>
+
+  <!-- ─── HERO ────────────────────────────────────────────────────────────────── -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-img"></div>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-line-top"></div>
+
+    <div class="hero-content-grid">
+      <div class="hero-text-col">
+        <div class="section-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span data-business-name>Premier Barber</span>
+        </div>
+
+        <h1 class="hero-title">
+          Seu estilo,<br /><em>nossa missão.</em>
+        </h1>
+
+        <p class="hero-desc">
+          Corte, barba, visagismo e tricologia em um ambiente moderno e sofisticado.
+          O cuidado que o homem contemporâneo merece.
+        </p>
+
+        <div class="hero-cta-row">
+          <button class="btn-agendar btn-gold-solid">Agendar Agora</button>
+          <a href="https://wa.me/5500000000000" class="hero-whatsapp-link" data-wa-link target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-wa-text>(00) 00000-0000</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat"><div class="hero-stat-n">15+</div><div class="hero-stat-l">Anos de experiência</div></div>
+          <div class="hero-stat"><div class="hero-stat-n">6</div><div class="hero-stat-l">Profissionais</div></div>
+          <div class="hero-stat"><div class="hero-stat-n">12</div><div class="hero-stat-l">Serviços</div></div>
+        </div>
+      </div>
+
+      <div class="hero-photo-col hero-logo-img" style="position:relative">
+        <div class="hero-photo-frame">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Premier Barber — Ambiente" />
+        </div>
+        <div class="hero-badge">
+          <div style="font-size:18px;font-family:'Playfair Display';font-weight:700">15+</div>
+          <div style="font-size:10px;text-transform:uppercase;line-height:1.3">anos de mercado</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-label">scroll</div>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── SOBRE ────────────────────────────────────────────────────────────── -->
+  <section id="sobre" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+    <div class="about-section-grid">
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:20px">
+          <div class="eyebrow-line"></div>
+          <span>Sobre a Barbearia</span>
+        </div>
+        <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700;line-height:1.2;margin-bottom:24px">
+          Tradição e modernidade em um ambiente sofisticado
+        </h2>
+        <p style="color:#888;line-height:1.9;margin-bottom:20px">
+          Nascemos da visão de criar um espaço onde o cuidado masculino vai além da estética.
+          Aqui, cada visita é uma experiência completa — de um ambiente cuidado a profissionais apaixonados pelo que fazem.
+        </p>
+        <p style="color:#888;line-height:1.9;margin-bottom:32px">
+          Com o nosso método exclusivo de <strong style="color:var(--white)">Geometria do Corte e Geometria da Barba</strong>,
+          desenvolvemos estilos que respeitam a harmonia de cada rosto — porque beleza masculina é ciência e arte.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#aaa"><div style="width:6px;height:6px;background:var(--gold);flex-shrink:0"></div>Profissionais especializados</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#aaa"><div style="width:6px;height:6px;background:var(--gold);flex-shrink:0"></div>Ambiente moderno</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#aaa"><div style="width:6px;height:6px;background:var(--gold);flex-shrink:0"></div>Atendimento personalizado</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#aaa"><div style="width:6px;height:6px;background:var(--gold);flex-shrink:0"></div>Localização privilegiada</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px" class="about-photo-col">
+        <div style="grid-row:1/3;grid-column:1;aspect-ratio:3/4;background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;position:relative;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&q=80" alt="Ambiente"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <div style="position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:1px solid rgba(201,168,76,.3);border-radius:2px"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        </div>
+        <div style="grid-row:1;grid-column:2;aspect-ratio:1;background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;position:relative;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Serviço"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div style="grid-row:2;grid-column:2;aspect-ratio:1;background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;position:relative;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" alt="Profissional"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+          <span style="position:absolute;bottom:12px;left:12px;font-size:11px;color:#ccc;font-weight:500">Mestre Barbeiro</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVIÇOS ─────────────────────────────────────────────────────────── -->
+  <section id="servicos" style="background:var(--dark);padding:100px 0">
+    <div class="gold-line"></div>
+    <div style="max-width:1200px;margin:0 auto;padding-top:80px;">
+      <div style="text-align:center;margin-bottom:60px">
+        <div class="section-eyebrow" style="justify-content:center">
+          <div class="eyebrow-line"></div>
+          <span>Nossos Serviços</span>
+        </div>
+        <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700;margin-bottom:16px">Tabela de Serviços</h2>
+        <p style="color:#888;max-width:480px;margin:0 auto;line-height:1.7">Escolha entre nossos serviços premium. Todos realizados por profissionais certificados.</p>
+      </div>
+
+      <div id="site-services-filter" style="padding:0 1rem"></div>
+
+      <div id="site-services-grid">
+        <div class="modal-spinner-wrap">
+          <div class="spinner"></div>
+          <p style="color:#555;margin-top:12px">Carregando serviços...</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px">
+        <button class="btn-agendar"
+          style="background:transparent;color:var(--gold);border:1px solid var(--gold);padding:14px 36px;font-size:14px;font-weight:600;letter-spacing:.1em;cursor:pointer;border-radius:2px;font-family:Outfit;text-transform:uppercase;transition:all .2s"
+          onmouseenter="this.style.background='var(--gold)';this.style.color='var(--black)'"
+          onmouseleave="this.style.background='transparent';this.style.color='var(--gold)'">
+          Agendar um Serviço
+        </button>
+      </div>
+    </div>
+    <div class="gold-line"></div>
+  </section>
+
+  <!-- ─── EQUIPE ───────────────────────────────────────────────────────────── -->
+  <section id="equipe" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-eyebrow" style="justify-content:center">
+        <div class="eyebrow-line"></div>
+        <span>Nossa Equipe</span>
+      </div>
+      <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700;margin-bottom:16px">Profissionais Especializados</h2>
+      <p style="color:#888;max-width:480px;margin:0 auto;line-height:1.7">Cada profissional da nossa equipe é treinado e certificado, apaixonado pelo cuidado masculino.</p>
+    </div>
+    <div id="site-team-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px">
+      <div class="modal-spinner-wrap"><div class="spinner"></div></div>
+    </div>
+  </section>
+
+  <!-- ─── GALERIA ──────────────────────────────────────────────────────────── -->
+  <section id="galeria" style="background:var(--dark);padding:100px 40px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="margin-bottom:60px">
+        <div class="section-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span>Galeria</span>
+        </div>
+        <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700">Nosso Trabalho</h2>
+      </div>
+      <div class="gallery-grid-main">
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Corte"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Corte Premium</span>
+        </div>
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Barba"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Barba</span>
+        </div>
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Tesoura"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Ferramentas Premium</span>
+        </div>
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Profissional"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Profissional em Ação</span>
+        </div>
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Ambiente"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Nosso Ambiente</span>
+        </div>
+        <div class="gallery-item" style="background:var(--dark2);border:1px solid #2a2a2a;border-radius:3px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden">
+          <img class="gallery-img" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Cadeiras"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease" />
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75) 0%,transparent 55%)"></div>
+          <span style="position:relative;font-size:12px;color:#ccc;font-weight:500">Espaço Sofisticado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LOJA ────────────────────────────────────────────────────────────── -->
+  <section id="loja" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-eyebrow" style="justify-content:center">
+        <div class="eyebrow-line"></div>
+        <span>Produtos</span>
+      </div>
+      <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700;margin-bottom:16px">Loja Oficial</h2>
+      <p style="color:#888;max-width:480px;margin:0 auto;line-height:1.7">Os mesmos produtos usados pelos nossos profissionais. Leve a experiência para casa.</p>
+    </div>
+    <div id="site-products-grid">
+      <div class="modal-spinner-wrap"><div class="spinner"></div></div>
+    </div>
+  </section>
+
+  <!-- ─── DEPOIMENTOS ─────────────────────────────────────────────────────── -->
+  <section id="depoimentos" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-eyebrow" style="justify-content:center">
+        <div class="eyebrow-line"></div>
+        <span>Depoimentos</span>
+      </div>
+      <h2 style="font-family:'Playfair Display';font-size:clamp(32px,3.5vw,48px);font-weight:700">O que dizem nossos clientes</h2>
+    </div>
+
+    <div style="max-width:640px;margin:0 auto 48px;text-align:center">
+      <div style="font-size:48px;color:var(--gold);opacity:.3;font-family:Georgia;line-height:1;margin-bottom:16px">"</div>
+      <p id="testem-text" style="font-family:'Playfair Display';font-size:20px;font-style:italic;line-height:1.7;color:#ddd;margin-bottom:24px;min-height:80px"></p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px">
+        <div id="testem-initial" style="width:36px;height:36px;border-radius:50%;background:var(--dark3);border:1px solid var(--gold-dark);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--gold)"></div>
+        <div>
+          <div id="testem-name" style="font-weight:600;font-size:14px"></div>
+          <div id="testem-stars" style="color:var(--gold);font-size:12px;margin-top:2px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="testem-dots" style="display:flex;justify-content:center;gap:8px;margin-bottom:48px"></div>
+    <div id="testem-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px"></div>
+  </section>
+
+  <!-- ─── LOCALIZAÇÃO ─────────────────────────────────────────────────────── -->
+  <section id="localiza" style="background:var(--dark);padding:100px 40px">
+    <div class="gold-line"></div>
+    <div style="max-width:1200px;margin:60px auto">
+      <div class="location-grid">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:20px">
+            <div class="eyebrow-line"></div>
+            <span>Localização</span>
+          </div>
+          <h2 style="font-family:'Playfair Display';font-size:clamp(28px,3vw,42px);font-weight:700;margin-bottom:32px">Como nos encontrar</h2>
+          <div style="display:grid;gap:24px">
+
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div class="location-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="location-label">Endereço</div>
+                <div class="location-info">Rua Principal, 100<br>Centro, São Paulo – SP<br>CEP 00000-000</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div class="location-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--gold)">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="location-label">WhatsApp</div>
+                <div class="location-info"><span data-wa-text>(00) 00000-0000</span></div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div class="location-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <div class="location-label">Horário</div>
+                <div class="location-info">Seg–Sex: 9h às 20h<br>Sábado: 9h às 18h</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:16px;align-items:flex-start">
+              <div class="location-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="location-label">Instagram</div>
+                <div class="location-info">@suabarbearia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div style="color:#555;font-size:14px">Mapa da localização</div>
+          <div style="color:#444;font-size:12px;max-width:200px">Configure o endereço para exibir o mapa da sua barbearia aqui</div>
+        </div>
+      </div>
+      <div style="margin-top:36px;" class="gold-line"></div>
+    </div>
+    <div class="gold-line"></div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────────────── -->
+  <footer style="background:var(--black);padding:60px 40px 30px;border-top:1px solid #1a1a1a">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="footer-grid-main">
+        <div>
+          <div style="margin-bottom:12px">
+            <span class="brand-logo-text" style="font-size:22px">
+              <span class="bl-main" style="font-size:22px">PREMIER</span>
+              <span class="bl-bar" style="height:20px"></span>
+              <span class="bl-sub" style="font-size:14px">Barber</span>
+            </span>
+          </div>
+          <div style="font-size:13px;color:#555;margin-bottom:4px" data-business-name>Premier Barber</div>
+          <p style="color:#666;font-size:13px;line-height:1.8;max-width:300px;margin-top:16px">
+            Corte, barba, visagismo e tricologia. Estilo com propósito.
+          </p>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px">Serviços</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Corte Premium</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Barboterapia</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Visagismo</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Coloração</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Massagem</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px">Contato</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Seg–Sex: 9h–20h</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px">Sábado: 9h–18h</div>
+          <div style="font-size:13px;color:#666;margin-bottom:10px"><span data-wa-text>(00) 00000-0000</span></div>
+          <div style="font-size:13px;color:#666;margin-bottom:20px">@suabarbearia</div>
+          <button class="btn-agendar" style="background:var(--gold);color:var(--black);border:none;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;border-radius:2px;font-family:Outfit;letter-spacing:.08em;text-transform:uppercase">
+            Agendar
+          </button>
+        </div>
+      </div>
+      <div class="gold-line"></div>
+      <div class="footer-bottom-row">
+        <span>© 2025 <span data-business-name>Premier Barber</span></span>
+        <span>Todos os direitos reservados</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── BOOKING MODAL ────────────────────────────────────────────────────── -->
+  <div id="booking-overlay" class="booking-modal-overlay" style="display:none">
+    <div class="booking-modal-inner">
+      <div class="booking-modal-header">
+        <div>
+          <div style="color:var(--gold);font-size:11px;letter-spacing:.2em;font-weight:600;text-transform:uppercase;margin-bottom:4px" data-business-name>Premier Barber</div>
+          <div style="font-family:'Playfair Display';font-size:22px;font-weight:700">Agendar Horário</div>
+        </div>
+        <button id="modal-close" class="modal-close-btn" aria-label="Fechar">×</button>
+        <div id="step-indicator" class="step-indicator"></div>
+      </div>
+
+      <div class="booking-modal-body">
+        <div id="step-3" class="step-panel" style="display:none">
+          <div id="step-3-content"></div>
+        </div>
+        <div id="step-4" class="step-panel" style="display:none">
+          <div id="step-4-content"></div>
+        </div>
+        <div id="step-6" class="step-panel" style="display:none">
+          <p class="modal-section-label">Seus dados de contato</p>
+          <div class="form-group">
+            <label class="form-label" for="cliente-nome">Seu nome completo *</label>
+            <input type="text" id="cliente-nome" class="form-input" placeholder="Nome completo" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cliente-telefone">WhatsApp *</label>
+            <input type="tel" id="cliente-telefone" class="form-input" placeholder="(11) 9XXXX-XXXX" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cliente-email">E-mail</label>
+            <input type="email" id="cliente-email" class="form-input" placeholder="seu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cliente-obs">Observação</label>
+            <textarea id="cliente-obs" class="form-input" rows="2" placeholder="Ex: quero degradê na lateral, alergia a produto X..."></textarea>
+          </div>
+          <p style="font-size:12px;color:#555;margin-top:8px">* Campos obrigatórios</p>
+        </div>
+        <div id="step-7" class="step-panel" style="display:none">
+          <div id="step-7-content"></div>
+        </div>
+        <div id="step-success" class="step-panel" style="display:none">
+          <div class="success-panel">
+            <div class="success-icon">✓</div>
+            <h2 style="font-family:'Playfair Display';font-size:28px;margin-bottom:12px">Agendamento Confirmado!</h2>
+            <div id="success-details" style="margin-bottom:24px"></div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:3px;padding:20px;font-size:13px;color:#666;line-height:1.7;margin-bottom:24px">
+              Você receberá confirmação via WhatsApp em breve.<br />
+              Dúvidas? <a href="#" data-wa-link style="color:var(--gold);text-decoration:none" target="_blank" rel="noopener"><span data-wa-text>(00) 00000-0000</span></a>
+            </div>
+            <div id="success-store-cta" class="store-cta-confirm" style="display:none">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=200&q=80" alt="Produtos" class="store-cta-img">
+              <div class="store-cta-confirm-content">
+                <p class="store-cta-confirm-text">
+                  Aproveite e <strong>leve um produto da nossa loja com desconto especial</strong> —
+                  os mesmos produtos usados pelos nossos profissionais!
+                </p>
+                <a href="#loja" class="store-cta-confirm-btn" onclick="document.getElementById('btn-success-close').click()">
+                  Ver Produtos da Loja →
+                </a>
+              </div>
+            </div>
+            <button id="btn-success-close" class="btn-gold-solid" style="margin-top:20px">Fechar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-modal-footer">
+        <button id="btn-voltar" class="btn-outline-modal" style="display:none">← Voltar</button>
+        <div style="flex:1"></div>
+        <button id="btn-continuar" class="btn-gold-solid">Continuar →</button>
+        <button id="btn-confirmar" class="btn-gold-solid" style="display:none">Confirmar Agendamento</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONFIG MODAL ─────────────────────────────────────────────────────── -->
+  <div id="config-overlay" class="config-modal-overlay" style="display:none">
+    <div class="config-modal-inner">
+      <div class="config-modal-header">
+        <div>
+          <div style="color:var(--gold);font-size:11px;letter-spacing:.2em;font-weight:600;text-transform:uppercase;margin-bottom:6px">Sistema</div>
+          <div style="font-family:'Playfair Display';font-size:22px;font-weight:700">Configurações da Integração</div>
+          <p style="color:#666;font-size:12px;margin-top:6px;line-height:1.5">Dados salvos localmente no navegador (localStorage).</p>
+        </div>
+        <button id="config-close" class="modal-close-btn" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="config-modal-body">
+        <div class="form-group">
+          <label class="form-label" for="cfg-business-name">Nome da Barbearia</label>
+          <input type="text" id="cfg-business-name" class="form-input" placeholder="Ex: Barbearia Premium" autocomplete="off" />
+        </div>
+
+        <div style="height:1px;background:#1e1e1e;margin:20px 0"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="cfg-api-url">URL da API *</label>
+          <input type="url" id="cfg-api-url" class="form-input" placeholder="https://api.seudominio.com" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cfg-api-key">API Key *</label>
+          <input type="text" id="cfg-api-key" class="form-input" placeholder="wrd_..." autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cfg-api-secret">API Secret *</label>
+          <div class="cfg-secret-wrap">
+            <input type="password" id="cfg-api-secret" class="form-input" placeholder="sk_..." autocomplete="off" spellcheck="false" />
+            <button id="cfg-secret-toggle" class="cfg-toggle-btn" type="button">Mostrar</button>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#1e1e1e;margin:20px 0"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="cfg-whatsapp">WhatsApp (código do país + DDD + número) *</label>
+          <input type="tel" id="cfg-whatsapp" class="form-input" placeholder="5511999999999" autocomplete="off" />
+          <p style="font-size:11px;color:#555;margin-top:6px;line-height:1.6">
+            Formato: <strong style="color:#888">55</strong> (Brasil) + <strong style="color:#888">12</strong> (DDD) + <strong style="color:#888">981365015</strong> (número)<br>
+            Exemplo: <code style="color:var(--gold);background:#1a1a1a;padding:1px 6px;border-radius:2px">5512981365015</code>
+          </p>
+        </div>
+
+        <p style="font-size:11px;color:#444;margin-top:8px">* Necessários para o agendamento funcionar. Após salvar, a página será recarregada.</p>
+      </div>
+
+      <div class="config-modal-footer">
+        <button id="btn-config-cancel" class="btn-outline-modal">Cancelar</button>
+        <div style="flex:1"></div>
+        <button id="btn-config-save" class="btn-gold-solid">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Salvar Configurações
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TOAST ─────────────────────────────────────────────────────────────── -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ─── WHATSAPP FAB ──────────────────────────────────────────────────────── -->
+  <a href="https://wa.me/5500000000000" class="whatsapp-fab" data-wa-link target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
