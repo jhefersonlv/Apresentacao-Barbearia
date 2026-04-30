@@ -441,13 +441,49 @@
         <div id="step-indicator" class="step-indicator"></div>
       </div>
 
+      <!-- Resumo do carrinho — visível ao adicionar mais serviços -->
+      <div id="carrinho-resumo" class="carrinho-resumo" style="display:none">
+        <div class="carrinho-header">🛒 Agendamentos no carrinho</div>
+        <div id="carrinho-lista" class="carrinho-lista"></div>
+      </div>
+
       <div class="booking-modal-body">
+
+        <!-- Step 1: Categoria -->
+        <div id="step-1" class="step-panel" style="display:none">
+          <div id="step-1-content"></div>
+        </div>
+
+        <!-- Step 2: Serviço dentro da categoria -->
+        <div id="step-2" class="step-panel" style="display:none">
+          <div id="step-2-content"></div>
+        </div>
+
         <div id="step-3" class="step-panel" style="display:none">
           <div id="step-3-content"></div>
         </div>
         <div id="step-4" class="step-panel" style="display:none">
           <div id="step-4-content"></div>
         </div>
+
+        <!-- Step 5: Decisão — adicionar mais serviço? -->
+        <div id="step-5" class="step-panel" style="display:none">
+          <div class="decision-panel">
+            <div class="decision-icon">🗓️</div>
+            <h3 style="font-family:'Playfair Display';font-size:22px;margin-bottom:16px">Serviço adicionado!</h3>
+            <div id="step5-preview"></div>
+            <p class="decision-question">Deseja agendar outro serviço (de uma categoria diferente)?</p>
+            <div class="decision-buttons">
+              <button id="btn-decision-sim" class="btn-decision btn-decision-sim">
+                + Sim, adicionar mais um serviço
+              </button>
+              <button id="btn-decision-nao" class="btn-decision btn-decision-nao">
+                Não, finalizar agendamento →
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div id="step-6" class="step-panel" style="display:none">
           <p class="modal-section-label">Seus dados de contato</p>
           <div class="form-group">
